@@ -1,0 +1,33 @@
+<div class="container mt-5">
+
+  <!-- search bar -->
+  <div class="row" id="search-bar">
+    <div class="col-12">
+      <form action="/search">
+        <div class="input-group mb-3">
+          <input type="text" name="keyword" value="{{userKeyword}}" class="form-control" placeholder="請輸入餐廳、分類"
+            aria-label="Movie Name..." aria-describedby="search-button">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- restaurant list -->
+  <div class="row" id="data-panel">
+    {{#each restaurantContent}}
+    <div class="col-sm-3">
+      <a href="/restaurant/{{this.id}}" class="text-secondary">
+        <div class="card mb-2">
+          <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+          <div class="card-body movie-item-body">
+            <h6 class="card-title">餐廳名稱:{{this.name}}</h6>
+            <h6 class="card-category">分類:{{this.category}}</h6>
+            <h6 class="card-rating">評分:{{this.rating}}</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+    {{/each}}
+  </div>
