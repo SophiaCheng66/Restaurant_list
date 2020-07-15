@@ -17,8 +17,8 @@ git clone https://github.com/SophiaCheng66/Restaurant_list.git
 
 - 進入到專案資料夾後，安裝packages
 
-cd Restaurant_list
-npm install
+cd Restaurant_list  npm install
+  
 
 
 - 透過nodemon啟動專案
@@ -28,5 +28,6 @@ npm run dev或npm start
 - 在terminal可以看到 this app running on 3000
 ，開啟瀏覽器在網址列輸入localhost:3000
 
-
+- 專案截圖
+![image](https://github.com/SophiaCheng66/Restaurant_list/blob/master/img/restaurant%20list.PNG)
 
