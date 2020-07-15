@@ -31,6 +31,10 @@ app.get('/search', (req, res) => {
   res.render('index', { restaurantContent: searchContent, userKeyword: userSearch })
 })
 
+app.get('/restaurantList', (req, res) => {
+  res.render('index', { restaurantContent: restaurantList.results })
+})
+
 app.listen(port, () => {
   console.log(`this app running on ${port}`)
 })
