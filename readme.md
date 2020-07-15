@@ -18,8 +18,8 @@ git clone https://github.com/SophiaCheng66/Restaurant_list.git
 - 進入到專案資料夾後，安裝packages
 
 cd Restaurant_list
-npm init
-npm express express-handlebars
+npm install
+
 
 - 透過nodemon啟動專案
 
