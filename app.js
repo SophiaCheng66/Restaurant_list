@@ -49,6 +49,14 @@ app.get('/restaurant/:restaurant_id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.get('/restaurant/:restaurant_id/edit', (req, res) => {
+  const id = req.params.restaurant_id
+  restaurantItem.findById(id)
+    .lean()
+    .then(restaurantId => res.render('edit', { restaurantId }))
+    .catch(error => console.log(error))
+})
+
 
 app.post("/restaurantItems", (req, res) => {
   const item = req.body.restaurantName
