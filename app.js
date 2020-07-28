@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars')
 const restaurantList = require('./restaurant.json')
 const mongoose = require('mongoose')
 const db = mongoose.connection
+const restaurantItem = require('./models/restaurantItem.js')
 
 mongoose.connect('mongodb://localhost/Restaurant_list', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -24,7 +25,10 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.render('index', { restaurantContent: restaurantList.results })
+  restaurantItem.find()
+    .lean()
+    .then(item => res.render('index', { restaurantDbData: item }))
+    .catch(error => console.log(error))
 })
 
 app.get('/restaurant/:restaurant_id', (req, res) => {

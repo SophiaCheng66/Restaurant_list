@@ -16,15 +16,14 @@
   </div>
   <!-- restaurant list -->
   <div class="row" id="data-panel">
-    {{#each restaurantContent}}
+    {{#each restaurantDbData}}
     <div class="col-sm-3">
       <a href="/restaurant/{{this.id}}" class="text-secondary">
         <div class="card mb-2">
           <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
           <div class="card-body movie-item-body">
             <h6 class="card-title">餐廳名稱:{{this.name}}</h6>
-            <h6 class="card-category">分類:{{this.category}}</h6>
-            <h6 class="card-rating">評分:{{this.rating}}</h6>
+
           </div>
         </div>
       </a>
