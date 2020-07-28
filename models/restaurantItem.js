@@ -8,9 +8,9 @@ const restaurantSchema = new Schema({
   },
   name_en: { type: String },
   category: {
-    type: String,
-    required: true
+    type: String
   },
+
   image: {
     type: String,
     required: true
@@ -19,12 +19,11 @@ const restaurantSchema = new Schema({
   phone: { type: String },
   google_map: { type: String },
   rating: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
-    type: String,
-    required: true
+    type: String
+
   }
 
 })

@@ -6,6 +6,7 @@ const restaurantList = require('./restaurant.json')
 const mongoose = require('mongoose')
 const db = mongoose.connection
 const restaurantItem = require('./models/restaurantItem.js')
+const bodyParser = require('body-parser')
 
 mongoose.connect('mongodb://localhost/Restaurant_list', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -23,6 +24,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
   restaurantItem.find()
@@ -31,16 +33,26 @@ app.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.get('/restaurant/:restaurant_id', (req, res) => {
-  // console.log(req.params.restaurant_id)
-  const restaurantShow = restaurantList.results.find(item => item.id.toString() === req.params.restaurant_id)
-  if (req.params.restaurant_id <= 8) {
-    res.render('show', { showContent: restaurantShow })
-  } else {
-    res.render('null')
-  }
-
+app.get('/restaurant/new', (req, res) => {
+  res.render('new')
 })
+
+app.post("/restaurantItems", (req, res) => {
+  const item = req.body.restaurantName
+  const item1 = req.body.restaurantUrl
+  // const restaurantSchema = new restaurantItem({ name: item, image: item1 })
+  // restaurantSchema.save()
+  restaurantItem.create({ name: item, image: item1 })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+
+// app.get('/restaurant/:restaurant_id', (req, res) => {
+//   console.log(req.params.restaurant_id)
+//   const restaurantShow = restaurantList.results.find(item => item.id.toString() === req.params.restaurant_id)
+//   res.render('show', { showContent: restaurantShow })
+// })
 
 app.get('/search', (req, res) => {
   // console.log(req.query.keyword)
@@ -59,6 +71,7 @@ app.get('/search', (req, res) => {
 app.get('/restaurantList', (req, res) => {
   res.render('index', { restaurantContent: restaurantList.results })
 })
+
 
 
 

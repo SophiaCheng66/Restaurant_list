@@ -14,8 +14,13 @@
       </form>
     </div>
   </div>
+
+  {{!-- create restaurant button --}}
+  <a href="/restaurant/new" style="text-decoration:none" ;>新增餐廳 </a>
+
+
   <!-- restaurant list -->
-  <div class="row" id="data-panel">
+  <div class=" row" id="data-panel">
     {{#each restaurantDbData}}
     <div class="col-sm-3">
       <a href="/restaurant/{{this.id}}" class="text-secondary">
