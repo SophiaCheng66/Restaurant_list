@@ -1,0 +1,50 @@
+<form action="/restaurantItems/{{restaurantId._id}}/edit" method="post">
+  <div class="container py-5">
+    <div class="text-center">
+
+      {{!-- <h3 class="mb-4" style="color:aliceblue">餐廳名稱:{{restaurantId.name}}</h3> --}}
+      <img class="rounded mb-4" src="{{restaurantId.image}}" alt="Card image cap" style="max-height: 250px;">
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-10 col-lg-8 mx-auto">
+        <p class="text-secondary mb-1">
+        <div>
+          <span style="display:inline"> 餐廳名稱 <input type="text" name="restaurantName" placeholder="請輸入餐廳名稱"
+              value={{restaurantId.name}} style="width:600px"></span>
+        </div>
+
+        <div>
+          <input type="text" name="restaurantCategory" placeholder="請輸入餐廳分類" value={{restaurantId.category}}
+            style="width:600px">
+        </div>
+
+        <div>
+          <input type="text" name="restaurantLocation" placeholder="請輸入餐廳地址" value={{restaurantId.location}}
+            style="width:600px">
+        </div>
+
+        <div>
+          <input type="text" name="restaurantPhone" placeholder="請輸入餐廳電話" style="width:600px">
+        </div>
+        </p>
+
+        <p>
+          <input type="text" name="restaurantDescription" placeholder="備註" style="width:600px;height:200px">
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button type=" submit">確定修改</button>
+  </div>
+</form>
+
+<div>
+  <h6>餐廳名稱:{{restaurantId.name}}</h6>
+  <h6>分類:{{restaurantId.category}}</h6>
+  <h6>地址:{{restaurantId.location}}</h6>
+  <h6>電話:{{restaurantId.phone}}</h6>
+  <h6>{{restaurantId.description}}</h6>
+</div>
