@@ -33,9 +33,22 @@ app.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+
+
+
 app.get('/restaurant/new', (req, res) => {
   res.render('new')
 })
+
+
+app.get('/restaurant/:restaurant_id', (req, res) => {
+  const id = req.params.restaurant_id
+  restaurantItem.findById(id)
+    .lean()
+    .then(restaurantId => res.render('show', { showContent: restaurantId }))
+    .catch(error => console.log(error))
+})
+
 
 app.post("/restaurantItems", (req, res) => {
   const item = req.body.restaurantName
@@ -48,11 +61,7 @@ app.post("/restaurantItems", (req, res) => {
 })
 
 
-// app.get('/restaurant/:restaurant_id', (req, res) => {
-//   console.log(req.params.restaurant_id)
-//   const restaurantShow = restaurantList.results.find(item => item.id.toString() === req.params.restaurant_id)
-//   res.render('show', { showContent: restaurantShow })
-// })
+
 
 app.get('/search', (req, res) => {
   // console.log(req.query.keyword)
@@ -69,7 +78,10 @@ app.get('/search', (req, res) => {
 })
 
 app.get('/restaurantList', (req, res) => {
-  res.render('index', { restaurantContent: restaurantList.results })
+  restaurantItem.find()
+    .lean()
+    .then(item => res.render('index', { restaurantDbData: item }))
+    .catch(error => console.log(error))
 })
 
 

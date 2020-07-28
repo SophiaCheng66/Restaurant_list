@@ -23,15 +23,18 @@
   <div class=" row" id="data-panel">
     {{#each restaurantDbData}}
     <div class="col-sm-3">
-      <a href="/restaurant/{{this.id}}" class="text-secondary">
+      <a href="/restaurant/{{this._id}}" class="text-secondary">
         <div class="card mb-2">
           <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
           <div class="card-body movie-item-body">
             <h6 class="card-title">餐廳名稱:{{this.name}}</h6>
-
           </div>
         </div>
       </a>
+    </div>
+
+    <div>
+      <a href="/restaurant/{{this._id}}">Detail</a>
     </div>
     {{/each}}
   </div>
