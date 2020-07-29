@@ -34,7 +34,7 @@ npm run dev或npm start
 - 在terminal可以看到 this app running on 3000
  ，開啟瀏覽器在網址列輸入localhost:3000
  
- -專案截圖
+ - 專案截圖
  ![image](https://github.com/SophiaCheng66/Restaurant_list/blob/master/img/Restaurant_list_DB%20photo.PNG)
 
  
