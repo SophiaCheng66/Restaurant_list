@@ -58,6 +58,31 @@ app.get('/restaurant/:restaurant_id/edit', (req, res) => {
 })
 
 
+app.post('/restaurantItems/:restaurant_id/edit', (req, res) => {
+  // console.log(req.params.restaurant_id)
+  const id = req.params.restaurant_id
+  const item = req.body.restaurantName
+  const item1 = req.body.restaurantCategory
+  const item2 = req.body.restaurantLocation
+  const item3 = req.body.restaurantPhone
+  const item4 = req.body.restaurantDescription
+  restaurantItem.findById(id)
+    .then(restaurantId => {
+      restaurantId.name = item
+      restaurantId.category = item1
+      restaurantId.location = item2
+      restaurantId.phone = item3
+      restaurantId.description = item4
+      restaurantId.save()
+    })
+    .then(() => res.redirect(`/restaurant/${id}`))
+    .catch(error => console.log(error))
+
+  // console.log(req.body.restaurantName, req.body.restaurantCategory, req.body.restaurantLocation, req.body.restaurantPhone, req.body.restaurantDescription)
+})
+
+
+
 app.post("/restaurantItems", (req, res) => {
   const item = req.body.restaurantName
   const item1 = req.body.restaurantUrl
@@ -67,6 +92,8 @@ app.post("/restaurantItems", (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
+
+
 
 
 
