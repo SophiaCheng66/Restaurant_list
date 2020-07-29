@@ -35,10 +35,33 @@ app.get('/', (req, res) => {
 
 
 
-
 app.get('/restaurant/new', (req, res) => {
   res.render('new')
 })
+
+
+app.get('/search', (req, res) => {
+  // console.log(req.query.keyword.toLowerCase())
+
+  const userSearch = req.query.keyword
+  // const searchContent = restaurantList.results.filter(item => item.name.toLowerCase().includes(userSearch.toLowerCase()) || item.category.toLowerCase().includes(userSearch.toLowerCase())
+  // )
+  // if (userSearch !== '') {
+  //   res.render('index', { restaurantContent: searchContent, userKeyword: userSearch })
+  // } else {
+  //   res.render('null')
+
+  // }
+  restaurantItem.find({
+    name: { $regex: userSearch, $options: "i" },
+  })
+    .lean()
+    .then(restaurants => res.render('search', { searchDbData: restaurants }))
+    .catch(error => console.log(error))
+
+})
+
+
 
 
 
@@ -112,19 +135,7 @@ app.post("/restaurantItems", (req, res) => {
 
 
 
-app.get('/search', (req, res) => {
-  // console.log(req.query.keyword)
 
-  const userSearch = req.query.keyword
-  const searchContent = restaurantList.results.filter(item => item.name.toLowerCase().includes(userSearch.toLowerCase()) || item.category.toLowerCase().includes(userSearch.toLowerCase())
-  )
-  if (userSearch !== '') {
-    res.render('index', { restaurantContent: searchContent, userKeyword: userSearch })
-  } else {
-    res.render('null')
-
-  }
-})
 
 app.get('/restaurantList', (req, res) => {
   restaurantItem.find()
