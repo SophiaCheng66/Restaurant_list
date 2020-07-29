@@ -41,6 +41,7 @@ app.get('/restaurant/new', (req, res) => {
 })
 
 
+
 app.get('/restaurant/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
   restaurantItem.findById(id)
@@ -58,6 +59,20 @@ app.get('/restaurant/:restaurant_id/edit', (req, res) => {
 })
 
 
+
+app.post('/restaurant/:restaurant_id/delete', (req, res) => {
+  const id = req.params.restaurant_id
+  // console.log(req.params.restaurant_id)
+  return restaurantItem.findById(id)
+    .then(restaurantId => restaurantId.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+
+
+
+
 app.post('/restaurantItems/:restaurant_id/edit', (req, res) => {
   // console.log(req.params.restaurant_id)
   const id = req.params.restaurant_id
@@ -66,22 +81,20 @@ app.post('/restaurantItems/:restaurant_id/edit', (req, res) => {
   const item2 = req.body.restaurantLocation
   const item3 = req.body.restaurantPhone
   const item4 = req.body.restaurantDescription
-  restaurantItem.findById(id)
+  return restaurantItem.findById(id)
     .then(restaurantId => {
       restaurantId.name = item
       restaurantId.category = item1
       restaurantId.location = item2
       restaurantId.phone = item3
       restaurantId.description = item4
-      restaurantId.save()
+      return restaurantId.save()
     })
     .then(() => res.redirect(`/restaurant/${id}`))
     .catch(error => console.log(error))
 
-  // console.log(req.body.restaurantName, req.body.restaurantCategory, req.body.restaurantLocation, req.body.restaurantPhone, req.body.restaurantDescription)
+
 })
-
-
 
 app.post("/restaurantItems", (req, res) => {
   const item = req.body.restaurantName
@@ -92,6 +105,7 @@ app.post("/restaurantItems", (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
+
 
 
 
