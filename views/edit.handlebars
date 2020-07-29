@@ -2,37 +2,36 @@
   <form action="/restaurantItems/{{restaurantId._id}}/edit" method="post">
     <div class="container py-5">
       <div class="text-center">
-
-
-        <img class="rounded mb-4" src="{{restaurantId.image}}" alt="Card image cap" style="max-height: 200px;">
+        <img class="rounded mb-4" src="{{restaurantId.image}}" alt="Card image cap" style="max-height: 230px;">
       </div>
       <div class="row">
         <div class="col-12 col-md-10 col-lg-8 mx-auto">
           <p class="text-secondary mb-1">
 
           <div class="d-inline-flex">
-            <label>餐廳:</label> <input type="text" name="restaurantName" placeholder="請輸入餐廳名稱"
-              value={{restaurantId.name}} style="width:600px">
+            <label style="color:#274c5e">餐廳:</label> <input type=" text" name="restaurantName" placeholder="請輸入餐廳名稱"
+              style="width:600px" value={{restaurantId.name}}>
           </div>
 
           <div class="d-inline-flex  mt-3">
-            <label>分類:</label> <input type="text" name="restaurantCategory" placeholder="請輸入餐廳分類" style="width:600px"
-              value={{restaurantId.category}}>
+            <label style="color:#274c5e">分類:</label> <input type="text" name="restaurantCategory" placeholder="請輸入餐廳分類"
+              style="width:600px" value={{restaurantId.category}}>
           </div>
 
           <div class=" d-inline-flex mt-3 ">
-            <label>地址:</label><input type=" text" name="restaurantLocation" placeholder="請輸入餐廳地址" style="width:600px"
-              value={{restaurantId.location}}>
+            <label style="color:#274c5e">地址:</label><input type=" text" name="restaurantLocation" placeholder="請輸入餐廳地址"
+              style="width:600px" value={{restaurantId.location}}>
           </div>
 
           <div class="d-inline-flex  mt-3">
-            <label>電話:</label> <input type="text" name="restaurantPhone" placeholder="請輸入餐廳電話" style="width:600px">
+            <label style="color:#274c5e">電話:</label> <input type="text" name="restaurantPhone" placeholder="請輸入餐廳電話"
+              style="width:600px">
           </div>
           </p>
 
           <p class="d-inline-flex">
-            <label>備註:</label><input type="text" name="restaurantDescription" style="width:600px;height:150px"
-              class="text-left">
+            <label style="color:#274c5e">備註:</label><input type="text" name="restaurantDescription"
+              style="width:600px;height:150px" class="text-left">
           </p>
 
         </div>
@@ -40,8 +39,11 @@
     </div>
 
     <div class="d-flex justify-content-center  mb-5">
-      <button type="submit" class="btn btn-secondary">確定修改</button>
+      <button type="submit" class="btn btn-outline-secondary">確定修改</button>
+      <a href="/" class="editButton" style="color:#f1bbba">Back</a>
     </div>
 
+
+    </div>
   </form>
 </body>

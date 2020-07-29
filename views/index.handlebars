@@ -5,7 +5,7 @@
     <div class="col-12">
       <form action="/search">
         <div class="input-group mb-3">
-          <input type="text" name="keyword" value="{{userKeyword}}" class="form-control" placeholder="請輸入餐廳、分類"
+          <input type="text" name="keyword" value="{{userKeyword}}" class="form-control" placeholder="請輸入餐廳"
             aria-label="Movie Name..." aria-describedby="search-button">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
@@ -16,13 +16,15 @@
   </div>
 
   {{!-- create restaurant button --}}
-  <a href="/restaurant/new" style="text-decoration:none" ;>新增餐廳 </a>
+  <a id="create" class="text-center" href="/restaurant/new" style="text-decoration:none;color:#F0E5DE;" ;>新增餐廳 Build
+    restaurant
+  </a>
 
 
   <!-- restaurant list -->
   <div class=" row" id="data-panel">
     {{#each restaurantDbData}}
-    <div class="col-sm-3">
+    <div class="col-sm-3 mb-5">
       <a href="/restaurant/{{this._id}}" class="text-secondary">
         <div class="card mb-2">
           <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
@@ -31,15 +33,15 @@
           </div>
         </div>
       </a>
-    </div>
 
-    <div>
-      <a href="/restaurant/{{this._id}}">Detail</a>
-      <a href="/restaurant/{{this._id}}/edit">Edit</a>
+      <div>
+        <a class="indexButton" href="/restaurant/{{this._id}}" style="color:#f1bbba"> Detail</a>
+        <a href="/restaurant/{{this._id}}/edit" style="color:#f1bbba">Edit</a>
 
-      <form action="/restaurant/{{this._id}}/delete" method="post" style="display:inline">
-        <button type="submit" class="btn btn-secondary">Delete</button>
-      </form>
+        <form action="/restaurant/{{this._id}}/delete" method="post" style="display:inline">
+          <button type="submit" class="btn btn-outline-secondary">Delete</button>
+        </form>
+      </div>
     </div>
     {{/each}}
   </div>

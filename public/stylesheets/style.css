@@ -1,19 +1,87 @@
+*{
+  box-sizing: border-box;
+}
+
+
+
 body{
 background-image:url('https://cdn.pixabay.com/photo/2020/06/30/15/03/sunset-5356682__340.jpg');
 background-repeat:repeat-x;
 letter-spacing: 2px;
-background-color:#a79c8e
+background-color:#a79c8e;
 }
 
 nav{
   margin-bottom: 200px;
 }
 
+#data-panel{
+  margin-top:26px;
+
+}
+
+#new{
+margin-top: 330px;
+}
+
+.input{
+  margin-left:30px;
+}
+
+#newButton{
+  margin-top: 100px;
+}
+
+#newButton1{
+  margin-bottom:50px;
+}
+
+.newBack{
+  margin-left:20px;
+  margin-bottom:20px;
+}
+
+.indexButton{
+  margin-left:20px;
+}
+
+
+.restaurantUrl{
+   margin-left:100px;
+}
+
+.editButton{
+  margin-left:20px;
+}
+
+#detailButton{
+  margin-left:25px;
+}
+
+#search{
+  margin-top:300px;
+}
+
+.searchButton{
+   margin-top:20px;
+   margin-bottom:10px;
+}
+
+ .searchButton1{
+  margin-right:33px;
+}
+
+.searchButton2{
+  margin-right:33px;
+} 
+
 #search-bar{
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 #null{
   margin-top: 300px;
 }
+
+
 

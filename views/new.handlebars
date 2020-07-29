@@ -1,11 +1,12 @@
-<form action="/restaurantItems" method="post">
+<form id="new" action="/restaurantItems" method="post">
+  <div class="input">
+    <span>餐廳: <input type="text" name="restaurantName" placeholder="請輸入餐廳名稱"></span>
+    <span class="restaurantUrl"> 圖片網址:<input type="text" name="restaurantUrl" placeholder="請輸入餐廳圖片網址"></span>
+  </div>
+  <div id="newButton" class="d-flex  flex-row justify-content-center">
 
-  <input type="text" name="restaurantName" placeholder="請輸入餐廳名稱">
-  <input type="text" name="restaurantUrl" placeholder="請輸入餐廳圖片網址">
+    <button id="newButton1" type="submit" class="btn btn-outline-secondary">確定新增</button>
 
-  <div>
-    <button type="submit">
-      確定新增
-    </button>
+    <a href="/" class="newBack" style="color:#f1bbba">Back</a>
   </div>
 </form>

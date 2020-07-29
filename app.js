@@ -52,13 +52,17 @@ app.get('/search', (req, res) => {
   //   res.render('null')
 
   // }
-  restaurantItem.find({
-    name: { $regex: userSearch, $options: "i" },
-  })
-    .lean()
-    .then(restaurants => res.render('search', { searchDbData: restaurants }))
-    .catch(error => console.log(error))
 
+  if (userSearch !== '') {
+    restaurantItem.find({
+      name: { $regex: userSearch, $options: "i" },
+    })
+      .lean()
+      .then(restaurants => res.render('search', { searchDbData: restaurants }))
+      .catch(error => console.log(error))
+  } else {
+    res.render('null')
+  }
 })
 
 

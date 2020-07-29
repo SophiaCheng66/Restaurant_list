@@ -1,4 +1,4 @@
-<div>
+<div class="d-flex flex-row justify-content-center" id="search">
   {{#each searchDbData}}
   <div class="col-sm-3">
     <a href="/restaurant/{{this._id}}" class="text-secondary">
@@ -9,15 +9,16 @@
         </div>
       </div>
     </a>
-  </div>
 
-  <div>
-    <a href="/restaurant/{{this._id}}">Detail</a>
-    <a href="/restaurant/{{this._id}}/edit">Edit</a>
 
-    <form action="/restaurant/{{this._id}}/delete" method="post" style="display:inline">
-      <button type="submit" class="btn btn-secondary">Delete</button>
-    </form>
+    <div class="searchButton">
+      <a href="/restaurant/{{this._id}}" style="color:#f1bbba" class="searchButton1">Detail</a>
+      <a href="/restaurant/{{this._id}}/edit" style="color:#f1bbba" class="searchButton2">Edit</a>
+
+      <form action="/restaurant/{{this._id}}/delete" method="post" style="display:inline" class="searchButton3">
+        <button type="submit" class="btn btn-outline-secondary">Delete</button>
+      </form>
+    </div>
   </div>
   {{/each}}
 </div>
