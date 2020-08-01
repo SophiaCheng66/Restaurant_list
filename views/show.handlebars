@@ -23,7 +23,8 @@
     <a href="/restaurant/{{showContent._id}}/edit" style="color:#f1bbba">Edit</a>
     <a href="/" class="editButton" style="color:#f1bbba">Back</a>
 
-    <form id="detailButton" action="/restaurant/{{showContent._id}}/delete" method="post" style="display:inline">
+    <form id="detailButton" action="/restaurant/{{showContent._id}}?_method=delete" method="post"
+      style="display:inline">
       <button type="submit" class="btn btn-outline-secondary">Delete</button>
     </form>
   </div>

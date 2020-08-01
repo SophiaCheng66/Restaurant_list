@@ -7,6 +7,8 @@ const mongoose = require('mongoose')
 const db = mongoose.connection
 const restaurantItem = require('./models/restaurantItem.js')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
+
 
 mongoose.connect('mongodb://localhost/Restaurant_list', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -25,6 +27,8 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
   restaurantItem.find()
@@ -87,7 +91,7 @@ app.get('/restaurant/:restaurant_id/edit', (req, res) => {
 
 
 
-app.post('/restaurant/:restaurant_id/delete', (req, res) => {
+app.delete('/restaurant/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
   // console.log(req.params.restaurant_id)
   return restaurantItem.findById(id)
@@ -100,7 +104,7 @@ app.post('/restaurant/:restaurant_id/delete', (req, res) => {
 
 
 
-app.post('/restaurantItems/:restaurant_id/edit', (req, res) => {
+app.put('/restaurantItems/:restaurant_id', (req, res) => {
   // console.log(req.params.restaurant_id)
   const id = req.params.restaurant_id
   const item = req.body.restaurantName

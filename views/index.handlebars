@@ -15,10 +15,7 @@
     </div>
   </div>
 
-  {{!-- create restaurant button --}}
-  <a id="create" class="text-center" href="/restaurant/new" style="text-decoration:none;color:#F0E5DE;">新增餐廳 Build
-    restaurant
-  </a>
+
 
 
   <!-- restaurant list -->
@@ -38,7 +35,7 @@
         <a class="indexButton" href="/restaurant/{{this._id}}" style="color:#f1bbba"> Detail</a>
         <a href="/restaurant/{{this._id}}/edit" style="color:#f1bbba">Edit</a>
 
-        <form action="/restaurant/{{this._id}}/delete" method="post" style="display:inline">
+        <form action="/restaurant/{{this._id}}?_method=delete" method="post" style="display:inline">
           <button type="submit" class="btn btn-outline-secondary">Delete</button>
         </form>
       </div>
