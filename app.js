@@ -4,8 +4,8 @@ const port = 3000
 const exphbs = require('express-handlebars')
 const restaurantList = require('./restaurant.json')
 // const mongoose = require('mongoose')
-// const db = mongoose.connection
-// const restaurantItem = require('./models/restaurantItem.js')
+// const db = mongoose.connection 
+const restaurantItem = require('./models/restaurantItem.js')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const routes = require('./routes')
@@ -31,6 +31,48 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(methodOverride('_method'))
 app.use(routes)
+
+app.get('/sort/A', (req, res) => {
+  restaurantItem.find()
+    .lean()
+    .sort({ name_en: 'asc' })
+
+    .then(todos => res.render('sort', { todos }))
+    .catch(error => console.log(error))
+})
+
+app.get('/sort/Z', (req, res) => {
+  restaurantItem.find()
+    .lean()
+    .sort({ name_en: 'desc' })
+
+    .then(todos => res.render('sort', { todos }))
+    .catch(error => console.log(error))
+})
+
+
+
+app.get('/sort/category', (req, res) => {
+  restaurantItem.find()
+    .lean()
+    .sort({ category: 'asc' })
+
+    .then(todos => res.render('sort', { todos }))
+    .catch(error => console.log(error))
+})
+
+
+app.get('/sort/location', (req, res) => {
+  restaurantItem.find()
+    .lean()
+    .sort({ location: 'asc' })
+
+    .then(todos => res.render('sort', { todos }))
+    .catch(error => console.log(error))
+})
+
+
+
 
 
 

@@ -20,8 +20,23 @@
       {{!-- create restaurant button --}}
       <a id="create" class="text-center" href="/restaurant/new" style="text-decoration:none;color:#F0E5DE;">新增餐廳 Build
         restaurant
-
       </a>
+
+      {{!-- sort --}}
+      <div class="dropdown d-inline-flex">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Sort
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/sort/A">A-Z</a>
+          <a class="dropdown-item" href="/sort/Z">Z-A</a>
+          <a class="dropdown-item" href="/sort/category">類別</a>
+          <a class="dropdown-item" href="/sort/location">地區</a>
+        </div>
+
+      </div>
+
     </div>
   </nav>
 
