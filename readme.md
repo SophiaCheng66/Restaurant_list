@@ -9,6 +9,7 @@
 - 使用者可以新增一家餐廳
 - 使用者可以修改一家餐廳的資訊
 - 使用者可以刪除一家餐廳
+- 使用者可以設定餐廳排序
 
 
 ### prerequisites
@@ -25,11 +26,16 @@ git clone https://github.com/SophiaCheng66/Restaurant_list.git
 
 - 進入到專案資料夾後，安裝packages
 
-cd Restaurant_list_DB  npm install
+cd Restaurant_list   npm install
   
 - 透過nodemon啟動專案
 
 npm run dev或npm start
+
+
+- 種子資料
+
+npm run seed
 
 - 在terminal可以看到 this app running on 3000
  ，開啟瀏覽器在網址列輸入localhost:3000
